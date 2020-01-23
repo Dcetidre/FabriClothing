@@ -1,0 +1,7 @@
+{
+	"parent" : "fabriclothing:item/hat",
+	"textures": {
+		"1": "fabriclothing:block/hat_flowered",
+		"particle": "fabriclothing:block/hat_flowered"
+	}
+}

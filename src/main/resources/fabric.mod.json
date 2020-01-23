@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "fabriclothing",
+  "version": "${version}",
+
+  "name": "FabriClothing",
+  "description": "Wearables in fabric!",
+  "authors": [
+    "DiegoDDK"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/fabriclothing/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.software.ddk.fabriclothing.FabriClothing"
+    ],
+	"client": [
+	  "com.software.ddk.fabriclothing.ClientFabriClothing"
+	]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*",
+	"minecraft": "1.15.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
