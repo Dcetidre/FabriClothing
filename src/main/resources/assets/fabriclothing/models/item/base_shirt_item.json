@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fabriclothing:item/remera_item"
+        "layer0": "fabriclothing:item/base_shirt_item"
     }
 }

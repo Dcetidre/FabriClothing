@@ -1,8 +1,8 @@
 package com.software.ddk.fabriclothing.common.items.clothes.simple;
 
-import com.software.ddk.fabriclothing.common.items.generic.BotasItem;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
 
-public class SimpleBoots extends BotasItem {
+public class SimpleBoots extends BaseBoots {
 
     @Override
     public String clothId() {

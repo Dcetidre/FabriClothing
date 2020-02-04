@@ -1,8 +1,8 @@
 package com.software.ddk.fabriclothing.common.items.clothes.lines;
 
-import com.software.ddk.fabriclothing.common.items.generic.AbrigoItem;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
 
-public class LinesCoat extends AbrigoItem {
+public class LinesCoat extends BaseCoat {
 
     @Override
     public String clothId() {

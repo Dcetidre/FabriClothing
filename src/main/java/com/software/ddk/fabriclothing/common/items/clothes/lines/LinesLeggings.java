@@ -1,8 +1,8 @@
 package com.software.ddk.fabriclothing.common.items.clothes.lines;
 
-import com.software.ddk.fabriclothing.common.items.generic.PantalonItem;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseLeggings;
 
-public class LinesLeggings extends PantalonItem {
+public class LinesLeggings extends BaseLeggings {
 
     @Override
     public String clothId() {

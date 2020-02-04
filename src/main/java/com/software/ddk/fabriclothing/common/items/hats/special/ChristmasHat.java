@@ -1,10 +1,10 @@
 package com.software.ddk.fabriclothing.common.items.hats.special;
 
 import com.software.ddk.clothing.api.ClothRenderData;
-import com.software.ddk.fabriclothing.common.items.generic.HatItem;
+import com.software.ddk.fabriclothing.common.items.hats.generic.BaseHat;
 import net.minecraft.entity.EquipmentSlot;
 
-public class ChristmasHat extends HatItem {
+public class ChristmasHat extends BaseHat {
 
     @Override
     public ClothRenderData renderData() {

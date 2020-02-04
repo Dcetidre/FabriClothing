@@ -1,0 +1,20 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"ooo",
+		"oxo",
+		"ooo"
+	],
+	"key" : {
+		"o" : {
+			"item" : "minecraft:stick"
+		},
+		"x" : {
+			"item" : "fabriclothing:fabric_item"
+		}
+	},
+	"result" : {
+		"item" : "fabriclothing:clothing_dyevat_block",
+		"count" : 1
+	}
+}

@@ -1,8 +1,8 @@
 package com.software.ddk.fabriclothing.common.items.clothes.stripped;
 
-import com.software.ddk.fabriclothing.common.items.generic.RemeraItem;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
 
-public class StrippedShirt extends RemeraItem {
+public class StrippedShirt extends BaseShirt {
 
     @Override
     public String clothId() {

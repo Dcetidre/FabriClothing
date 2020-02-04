@@ -1,4 +1,4 @@
-package com.software.ddk.fabriclothing.common.items.generic;
+package com.software.ddk.fabriclothing.common.items.clothes.generic;
 
 import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.FabriClothing;
@@ -8,8 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
-public class BotasItem extends Item implements ICloth, DyeableItem {
-    public BotasItem() {
+public class BaseBoots extends Item implements ICloth, DyeableItem {
+    public BaseBoots() {
         super(new Item.Settings().group(FabriClothing.GROUP));
     }
 
@@ -54,7 +54,7 @@ public class BotasItem extends Item implements ICloth, DyeableItem {
 
     @Override
     public String clothId() {
-        return "simple";
+        return "base";
     }
 
     @Override

@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "fabriclothing:item/abrigo_item",
-        "layer1": "fabriclothing:item/abrigo_item_layer1"
-    }
-}

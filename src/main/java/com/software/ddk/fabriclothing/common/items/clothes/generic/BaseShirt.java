@@ -1,4 +1,4 @@
-package com.software.ddk.fabriclothing.common.items.generic;
+package com.software.ddk.fabriclothing.common.items.clothes.generic;
 
 import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.FabriClothing;
@@ -8,9 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
-public class AbrigoItem extends Item implements ICloth, DyeableItem {
-
-    public AbrigoItem() {
+public class BaseShirt extends Item implements ICloth, DyeableItem {
+    public BaseShirt() {
         super(new Item.Settings().group(FabriClothing.GROUP));
     }
 
@@ -34,6 +33,7 @@ public class AbrigoItem extends Item implements ICloth, DyeableItem {
         CompoundTag compoundTag = stack.getSubTag("display");
         return compoundTag != null && compoundTag.contains("colorOverlay", 99) ? compoundTag.getInt("colorOverlay") : 0xffffff;
     }
+
     @Override
     public boolean customEquip() {
         return true;
@@ -42,8 +42,8 @@ public class AbrigoItem extends Item implements ICloth, DyeableItem {
     @Override
     public boolean[][] equipLayers() {
         return new boolean[][]{
-                {false, false, false, false},
-                {false, true, false, false}
+                {false, true, false, false},
+                {false, false, false, false}
         };
     }
 
@@ -54,11 +54,12 @@ public class AbrigoItem extends Item implements ICloth, DyeableItem {
 
     @Override
     public String clothId() {
-        return "simple";
+        return "base";
     }
 
     @Override
     public String modId() {
         return FabriClothing.MOD_ID;
     }
+
 }

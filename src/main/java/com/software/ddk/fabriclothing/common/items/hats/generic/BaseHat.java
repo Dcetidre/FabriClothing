@@ -1,4 +1,4 @@
-package com.software.ddk.fabriclothing.common.items.generic;
+package com.software.ddk.fabriclothing.common.items.hats.generic;
 
 import com.software.ddk.clothing.api.ClothRenderData;
 import com.software.ddk.clothing.api.ICloth;
@@ -9,9 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
-public class HatItem extends Item implements ICloth, DyeableItem {
+public class BaseHat extends Item implements ICloth, DyeableItem {
 
-    public HatItem() {
+    public BaseHat() {
         super(new Item.Settings().group(FabriClothing.GROUP));
     }
 

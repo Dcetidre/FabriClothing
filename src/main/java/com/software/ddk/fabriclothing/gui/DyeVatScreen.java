@@ -1,32 +1,29 @@
 package com.software.ddk.fabriclothing.gui;
 
 import com.software.ddk.fabriclothing.FabriClothing;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.AbstractContainerScreen;
+import net.minecraft.client.gui.screen.ingame.ContainerScreen;
 import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.container.Slot;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 
-@Environment(EnvType.CLIENT)
-public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomContainer> {
+public class DyeVatScreen extends ContainerScreen<DyeVatContainer> {
     private static final Identifier TEXTURE = new Identifier(FabriClothing.MOD_ID, "textures/gui/clothing_dyevat.png");
-    private ItemStack banner;
+    private static final String TITLE = "Dye Vat";
+    private ItemStack cloth;
     private ItemStack dye;
-    private boolean canApplyDyePattern;
-    private int firstPatternButtonId;
+    private boolean canApplyDye;
+    private int firstButtonId;
 
-    public ClothingLoomScreen(ClothingLoomContainer container, PlayerInventory inventory) {
-        super(container, inventory, new LiteralText("Dye Vat"));
-        this.banner = ItemStack.EMPTY;
+    public DyeVatScreen(DyeVatContainer container) {
+        super(container, container.getPlayerInventory(), new LiteralText(TITLE));
+        this.cloth = ItemStack.EMPTY;
         this.dye = ItemStack.EMPTY;
-        this.firstPatternButtonId = 1;
+        this.firstButtonId = 1;
         container.setInventoryChangeListener(this::onInventoryChanged);
     }
 
@@ -42,7 +39,7 @@ public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomCont
         this.font.draw(this.playerInventory.getDisplayName().asFormattedString(), 8.0F, (float)(this.containerHeight - 96 + 2), 4210752);
 
         //button texts
-        if (this.canApplyDyePattern) {
+        if (this.canApplyDye) {
             this.font.draw("base", 65.0f, 29.0f, 4210752);
             this.font.draw("overlay", 65.0f, 55.0f, 4210752);
         }
@@ -51,14 +48,15 @@ public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomCont
     @Override
     protected void drawBackground(float delta, int mouseX, int mouseY) {
         this.renderBackground();
-        this.minecraft.getTextureManager().bindTexture(TEXTURE);
+        //this.minecraft.getTextureManager().bindTexture(TEXTURE);
+        MinecraftClient.getInstance().getTextureManager().bindTexture(TEXTURE);
         int i = this.x;
         int j = this.y;
         this.blit(i, j, 0, 0, this.containerWidth, this.containerHeight);
 
-        Slot slot = (this.container).getBannerSlot();
+        Slot slot = (this.container).getClothSlot();
         Slot slot2 = (this.container).getDyeSlot();
-        Slot slot4 = (this.container).getOutputSlot();
+        //Slot slot4 = (this.container).getOutputSlot();
 
         if (!slot.hasStack()) {
             this.blit(i + slot.xPosition, j + slot.yPosition, this.containerWidth, 0, 16, 16);
@@ -69,10 +67,10 @@ public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomCont
 
         DiffuseLighting.disableGuiDepthLighting();
 
-        if (this.canApplyDyePattern) {
+        if (this.canApplyDye) {
             int pX = i + 60;
             int pY = j + 13;
-            int m = this.firstPatternButtonId;
+            int m = this.firstButtonId;
             double mX = mouseX - (double)(pX + m % 4 * 14);
             double mY = mouseY - (double)(pY + m / 4 * 14);
 
@@ -94,22 +92,19 @@ public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomCont
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (this.canApplyDyePattern) {
+        if (this.canApplyDye) {
             int pX = this.x + 60;
             int pY = this.y + 13;
-            int m = this.firstPatternButtonId;
+            int m = this.firstButtonId;
             double mX = mouseX - (double)(pX + m % 4 * 14);
             double mY = mouseY - (double)(pY + m / 4 * 14);
 
-            //listeners de click
-            //System.out.println("mouse: " + mX + " - " + mY);
-            //button 1
+            //button click listeners
             if (mX >= -12.5D && mY >= 11.5D && mX < 45.0D && mY < 28.5D && (this.container).onButtonClick(this.minecraft.player, 1)){
                 MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
                 this.minecraft.interactionManager.clickButton((this.container).syncId, 1);
                 return true;
             }
-            //button 2
             if (mX >= -12.5D && mY >= 36.0D && mX < 45.0D && mY < 54.0D && (this.container).onButtonClick(this.minecraft.player, 2)){
                 MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
                 this.minecraft.interactionManager.clickButton((this.container).syncId, 2);
@@ -135,15 +130,15 @@ public class ClothingLoomScreen extends AbstractContainerScreen<ClothingLoomCont
     }
 
     private void onInventoryChanged() {
-        ItemStack itemStack = (this.container).getOutputSlot().getStack();
-        ItemStack itemStack2 = (this.container).getBannerSlot().getStack();
+        //ItemStack itemStack = (this.container).getOutputSlot().getStack();
+        ItemStack itemStack2 = (this.container).getClothSlot().getStack();
         ItemStack itemStack3 = (this.container).getDyeSlot().getStack();
 
-        if (!ItemStack.areEqualIgnoreDamage(itemStack2, this.banner) || !ItemStack.areEqualIgnoreDamage(itemStack3, this.dye)) {
-            this.canApplyDyePattern = !itemStack2.isEmpty() && !itemStack3.isEmpty();
+        if (!ItemStack.areEqualIgnoreDamage(itemStack2, this.cloth) || !ItemStack.areEqualIgnoreDamage(itemStack3, this.dye)) {
+            this.canApplyDye = !itemStack2.isEmpty() && !itemStack3.isEmpty();
         }
 
-        this.banner = itemStack2.copy();
+        this.cloth = itemStack2.copy();
         this.dye = itemStack3.copy();
     }
 }

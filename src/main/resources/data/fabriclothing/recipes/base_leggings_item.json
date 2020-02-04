@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"ooo",
+		"o o",
+		"o o"
+	],
+	"key" : {
+		"o" : {
+			"item" : "fabriclothing:fabric_item"
+		}
+	},
+	"result" : {
+		"item" : "fabriclothing:base_leggings_item",
+		"count" : 1
+	}
+}

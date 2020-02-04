@@ -1,7 +1,11 @@
 package com.software.ddk.fabriclothing;
 
-import com.software.ddk.fabriclothing.common.blocks.ClothingLoomBlock;
+import com.software.ddk.fabriclothing.common.blocks.ClothingDyevatBlock;
 import com.software.ddk.fabriclothing.common.items.*;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseLeggings;
+import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesShirt;
@@ -11,29 +15,33 @@ import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleLeggings
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedShirt;
-import com.software.ddk.fabriclothing.common.items.generic.HatItem;
+import com.software.ddk.fabriclothing.common.items.hats.generic.BaseHat;
 import com.software.ddk.fabriclothing.common.items.hats.special.ChristmasHat;
 import net.minecraft.block.Block;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Contents {
 
     public static final Item FABRIC_ITEM = new FabricItem();
-    //simple set
+
+    public static final Item BASE_SHIRT = new BaseShirt();
+    public static final Item BASE_COAT = new BaseCoat();
+    public static final Item BASE_LEGGINGS = new BaseLeggings();
+    public static final Item BASE_BOOTS = new BaseBoots();
+
     public static final Item SIMPLE_SHIRT = new SimpleShirt();
     public static final Item SIMPLE_COAT = new SimpleCoat();
-    public static final Item SIMPLE_LEGGINGS = new SimpleLeggings();
-    public static final Item SIMPLE_BOOTS = new SimpleBoots();
+    //public static final Item SIMPLE_LEGGINGS = new SimpleLeggings();
+    //public static final Item SIMPLE_BOOTS = new SimpleBoots();
+
     //hats
-    public static final Item HAT_ITEM = new HatItem();
-    public static final Item HAT_STRIPPED_ITEM = new HatItem();
-    public static final Item HAT_STRIPPED2_ITEM = new HatItem();
-    public static final Item HAT_FLOWERED_ITEM = new HatItem();
+    public static final Item HAT_ITEM = new BaseHat();
+    public static final Item HAT_STRIPPED_ITEM = new BaseHat();
+    public static final Item HAT_STRIPPED2_ITEM = new BaseHat();
+    public static final Item HAT_FLOWERED_ITEM = new BaseHat();
     public static final Item HAT_CHRISTMAS = new ChristmasHat();
 
     public static final Item STRIPPED_COAT = new StrippedCoat();
@@ -43,18 +51,22 @@ public class Contents {
     public static final Item LINES_SHIRT = new LinesShirt();
     public static final Item LINES_LEGGINGS = new LinesLeggings();
 
-    public static final Block CLOTHING_LOOM_BLOCK = new ClothingLoomBlock();
+    public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
     public static void registerAll(){
 
-        registerBlock("clothing_loom_block", CLOTHING_LOOM_BLOCK, new Item.Settings().group(FabriClothing.GROUP));
+        registerBlock("clothing_dyevat_block", CLOTHING_DYEVAT_BLOCK, new Item.Settings().group(FabriClothing.GROUP));
         register("fabric_item", FABRIC_ITEM);
 
-        //simple set
+        register("base_shirt_item", BASE_SHIRT);
+        register("base_coat_item", BASE_COAT);
+        register("base_leggings_item", BASE_LEGGINGS);
+        register("base_boots_item", BASE_BOOTS);
+
         register("simple_shirt_item", SIMPLE_SHIRT);
         register("simple_coat_item", SIMPLE_COAT);
-        register("simple_leggings_item", SIMPLE_LEGGINGS);
-        register("simple_boots_item", SIMPLE_BOOTS);
+        //register("simple_leggings_item", SIMPLE_LEGGINGS);
+        //register("simple_boots_item", SIMPLE_BOOTS);
         
         register("stripped_shirt_item", STRIPPED_SHIRT);
         register("stripped_coat_item", STRIPPED_COAT);
@@ -68,7 +80,6 @@ public class Contents {
         register("hat_stripped_item", HAT_STRIPPED_ITEM);
         register("hat_stripped2_item", HAT_STRIPPED2_ITEM);
         register("hat_flowered_item", HAT_FLOWERED_ITEM);
-
 
         //special hats
         register("hat_christmas_item", HAT_CHRISTMAS);
