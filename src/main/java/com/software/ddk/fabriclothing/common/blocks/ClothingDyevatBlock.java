@@ -19,8 +19,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class ClothingDyevatBlock extends FacingBlock {
-    private VoxelShape SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    private VoxelShape SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 13.0D, 16.0D);
+    private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public ClothingDyevatBlock() {
         super(FabricBlockSettings.of(Material.WOOD).strength(1.0f, 1.0f).build());

@@ -1,3 +1,10 @@
 {
-  
+  "itemGroup.fabriclothing.fabriclothing_group" : "FabriClothing",
+  "block.fabriclothing.clothing_dyevat_block" : "Clothing Dye Vat",
+  "item.fabriclothing.fabric_item" : "Fabric",
+  "item.fabriclothing.base_shirt_item" : "Basic Shirt",
+  "item.fabriclothing.base_coat_item" : "Basic Coat",
+  "item.fabriclothing.base_leggings_item" : "Basic Leggings",
+  "item.fabriclothing.base_boots_item" : "Basic Boots",
+  "item.fabriclothing.hat_item" : "Basic Hat"
 }

@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "fabriclothing:block/clothing_dyevat",
-		"particle": "fabriclothing:block/clothing_dyevat"
+		"particle": "block/loom_side"
 	},
 	"elements": [
 		{

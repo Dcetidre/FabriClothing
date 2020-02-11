@@ -9,6 +9,10 @@ import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesShirt;
+import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Boots;
+import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Coat;
+import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Leggings;
+import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Shirt;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleBoots;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleLeggings;
@@ -51,6 +55,11 @@ public class Contents {
     public static final Item LINES_SHIRT = new LinesShirt();
     public static final Item LINES_LEGGINGS = new LinesLeggings();
 
+    public static final Item TYPE3_COAT = new Type3Coat();
+    public static final Item TYPE3_SHIRT = new Type3Shirt();
+    public static final Item TYPE3_LEGGINGS = new Type3Leggings();
+    public static final Item TYPE3_BOOTS = new Type3Boots();
+
     public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
     public static void registerAll(){
@@ -74,6 +83,11 @@ public class Contents {
         register("line_coat_item", LINES_COAT);
         register("line_shirt_item", LINES_SHIRT);
         register("line_leggings_item", LINES_LEGGINGS);
+
+        register("type3_coat_item", TYPE3_COAT);
+        register("type3_shirt_item", TYPE3_SHIRT);
+        register("type3_leggings_item", TYPE3_LEGGINGS);
+        register("type3_boots_item", TYPE3_BOOTS);
 
         //hats
         register("hat_item", HAT_ITEM);

@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "fabriclothing:item/type3_coat_item_layer0",
+        "layer1": "fabriclothing:item/type3_coat_item_layer1"
+    }
+}
