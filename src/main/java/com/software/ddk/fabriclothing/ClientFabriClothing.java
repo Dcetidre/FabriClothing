@@ -24,13 +24,16 @@ public class ClientFabriClothing implements ClientModInitializer {
 
         //layered hats.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
-                Contents.HAT_ITEM, Contents.HAT_STRIPPED_ITEM, Contents.HAT_STRIPPED2_ITEM, Contents.HAT_FLOWERED_ITEM);
+                Contents.HAT_ITEM, Contents.HAT_STRIPPED_ITEM, Contents.HAT_STRIPPED2_ITEM, Contents.HAT_FLOWERED_ITEM,
+                Contents.HAT_BUNNY);
 
         //layered items.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
                 Contents.STRIPPED_COAT, Contents.STRIPPED_SHIRT,
                 Contents.LINES_COAT, Contents.LINES_SHIRT, Contents.LINES_LEGGINGS,
-                Contents.TYPE3_COAT, Contents.TYPE3_SHIRT, Contents.TYPE3_LEGGINGS, Contents.TYPE3_BOOTS);
+                Contents.TYPE3_COAT, Contents.TYPE3_SHIRT, Contents.TYPE3_LEGGINGS, Contents.TYPE3_BOOTS,
+                Contents.CROSSED_COAT, Contents.CROSSED_SHIRT
+        );
 
         //gui
         ScreenProviderRegistry.INSTANCE.registerFactory(FabriClothing.DYE_VAT_CONTAINER, (syncId, identifier, player, buf) -> new DyeVatScreen(new DyeVatContainer(syncId, player.inventory, BlockContext.create(player.world, buf.readBlockPos()))));

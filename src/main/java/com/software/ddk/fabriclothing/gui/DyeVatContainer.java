@@ -159,7 +159,7 @@ public class DyeVatContainer extends Container {
                         return ItemStack.EMPTY;
                     }
                 } else if (invSlot >= 4 && invSlot < 31) {
-                    if (!this.insertItem(selectedStack, 31, 40, false)) {
+                    if (!this.insertItem(selectedStack, 31, 39, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (invSlot >= 31 && invSlot < 40 && !this.insertItem(selectedStack, 4, 31, false)) {
@@ -198,7 +198,7 @@ public class DyeVatContainer extends Container {
 
             if (!clothItem.isEmpty() && !fabricItem.isEmpty()) {
                 int fabriColor = ((DyeableItem) fabricItem.getItem()).getColor(fabricItem);
-                outputItem = clothItem.copy();
+                outputItem = new ItemStack(clothItem.getItem(), 1);
 
                 switch (this.selectedOption.get()){
                     case 1:

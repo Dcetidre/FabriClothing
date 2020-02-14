@@ -2,6 +2,8 @@ package com.software.ddk.fabriclothing;
 
 import com.software.ddk.fabriclothing.common.blocks.ClothingDyevatBlock;
 import com.software.ddk.fabriclothing.common.items.*;
+import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedCoat;
+import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseLeggings;
@@ -20,6 +22,7 @@ import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedShirt;
 import com.software.ddk.fabriclothing.common.items.hats.generic.BaseHat;
+import com.software.ddk.fabriclothing.common.items.hats.special.BunnyHat;
 import com.software.ddk.fabriclothing.common.items.hats.special.ChristmasHat;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -47,6 +50,7 @@ public class Contents {
     public static final Item HAT_STRIPPED2_ITEM = new BaseHat();
     public static final Item HAT_FLOWERED_ITEM = new BaseHat();
     public static final Item HAT_CHRISTMAS = new ChristmasHat();
+    public static final Item HAT_BUNNY = new BunnyHat();
 
     public static final Item STRIPPED_COAT = new StrippedCoat();
     public static final Item STRIPPED_SHIRT = new StrippedShirt();
@@ -59,6 +63,9 @@ public class Contents {
     public static final Item TYPE3_SHIRT = new Type3Shirt();
     public static final Item TYPE3_LEGGINGS = new Type3Leggings();
     public static final Item TYPE3_BOOTS = new Type3Boots();
+
+    public static final Item CROSSED_COAT = new CrossedCoat();
+    public static final Item CROSSED_SHIRT = new CrossedShirt();
 
     public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
@@ -89,6 +96,9 @@ public class Contents {
         register("type3_leggings_item", TYPE3_LEGGINGS);
         register("type3_boots_item", TYPE3_BOOTS);
 
+        register("type4_coat_item", CROSSED_COAT);
+        register("type4_shirt_item", CROSSED_SHIRT);
+
         //hats
         register("hat_item", HAT_ITEM);
         register("hat_stripped_item", HAT_STRIPPED_ITEM);
@@ -97,6 +107,7 @@ public class Contents {
 
         //special hats
         register("hat_christmas_item", HAT_CHRISTMAS);
+        register("hat_bunny_item", HAT_BUNNY);
 
     }
 
