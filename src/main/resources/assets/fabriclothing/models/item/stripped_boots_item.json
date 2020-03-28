@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "fabriclothing:item/stripped_boots_item_layer0",
+        "layer1": "fabriclothing:item/stripped_boots_item_layer1"
+    }
+}

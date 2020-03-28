@@ -1,0 +1,17 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "pattern" : [
+    "xxx",
+    "   ",
+    "xxx"
+  ],
+  "key" : {
+    "x" : {
+      "item" : "fabriclothing:fabric_item"
+    }
+  },
+  "result" : {
+    "item" : "fabriclothing:fabric_pattern_line",
+    "count" : 6
+  }
+}

@@ -1,8 +1,8 @@
-package com.software.ddk.fabriclothing.common.items.clothes.misc;
+package com.software.ddk.fabriclothing.common.items.clothes.checkered;
 
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
 
-public class Type3Shirt extends BaseShirt {
+public class CheckeredShirt extends BaseShirt {
     @Override
     public String clothId() {
         return "type3";

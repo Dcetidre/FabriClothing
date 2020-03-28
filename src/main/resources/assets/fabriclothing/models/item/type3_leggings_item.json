@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "fabriclothing:item/type3_leggings_item_layer0",
-        "layer1": "fabriclothing:item/type3_leggings_item_layer1"
-    }
-}

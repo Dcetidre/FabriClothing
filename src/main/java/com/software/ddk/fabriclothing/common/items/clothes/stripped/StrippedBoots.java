@@ -1,12 +1,12 @@
-package com.software.ddk.fabriclothing.common.items.clothes.misc;
+package com.software.ddk.fabriclothing.common.items.clothes.stripped;
 
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
 
-public class Type3Boots extends BaseBoots {
+public class StrippedBoots extends BaseBoots {
 
     @Override
     public String clothId() {
-        return "type3";
+        return "type1";
     }
 
     @Override

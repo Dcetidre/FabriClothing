@@ -4,6 +4,8 @@ import com.software.ddk.fabriclothing.common.blocks.ClothingDyevatBlock;
 import com.software.ddk.fabriclothing.common.items.*;
 import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedShirt;
+import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedCoat;
+import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseLeggings;
@@ -11,13 +13,11 @@ import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesShirt;
-import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Boots;
-import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Coat;
-import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Leggings;
-import com.software.ddk.fabriclothing.common.items.clothes.misc.Type3Shirt;
-import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleBoots;
+import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedBoots;
+import com.software.ddk.fabriclothing.common.items.clothes.checkered.CheckeredCoat;
+import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedLeggings;
+import com.software.ddk.fabriclothing.common.items.clothes.checkered.CheckeredShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleCoat;
-import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedShirt;
@@ -33,6 +33,11 @@ import net.minecraft.util.registry.Registry;
 public class Contents {
 
     public static final Item FABRIC_ITEM = new FabricItem();
+
+    public static final Item FABRIC_PATTERN_STRIPPED = new Item(new Item.Settings().group(FabriClothing.GROUP));
+    public static final Item FABRIC_PATTERN_LINE = new Item(new Item.Settings().group(FabriClothing.GROUP));
+    public static final Item FABRIC_PATTERN_CHECKERED = new Item(new Item.Settings().group(FabriClothing.GROUP));
+    public static final Item FABRIC_PATTERN_CROSSED = new Item(new Item.Settings().group(FabriClothing.GROUP));
 
     public static final Item BASE_SHIRT = new BaseShirt();
     public static final Item BASE_COAT = new BaseCoat();
@@ -54,18 +59,21 @@ public class Contents {
 
     public static final Item STRIPPED_COAT = new StrippedCoat();
     public static final Item STRIPPED_SHIRT = new StrippedShirt();
+    public static final Item STRIPPED_LEGGINGS = new StrippedLeggings();
+    public static final Item STRIPPED_BOOTS = new StrippedBoots();
 
     public static final Item LINES_COAT = new LinesCoat();
     public static final Item LINES_SHIRT = new LinesShirt();
     public static final Item LINES_LEGGINGS = new LinesLeggings();
 
-    public static final Item TYPE3_COAT = new Type3Coat();
-    public static final Item TYPE3_SHIRT = new Type3Shirt();
-    public static final Item TYPE3_LEGGINGS = new Type3Leggings();
-    public static final Item TYPE3_BOOTS = new Type3Boots();
+    public static final Item CHECKERED_COAT = new CheckeredCoat();
+    public static final Item CHECKERED_SHIRT = new CheckeredShirt();
 
     public static final Item CROSSED_COAT = new CrossedCoat();
     public static final Item CROSSED_SHIRT = new CrossedShirt();
+
+    public static final Item DOTTED_COAT = new DottedCoat();
+    public static final Item DOTTED_SHIRT = new DottedShirt();
 
     public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
@@ -74,6 +82,13 @@ public class Contents {
         registerBlock("clothing_dyevat_block", CLOTHING_DYEVAT_BLOCK, new Item.Settings().group(FabriClothing.GROUP));
         register("fabric_item", FABRIC_ITEM);
 
+        //patterns
+        register("fabric_pattern_stripped", FABRIC_PATTERN_STRIPPED);
+        register("fabric_pattern_line", FABRIC_PATTERN_LINE);
+        register("fabric_pattern_checkered", FABRIC_PATTERN_CHECKERED);
+        register("fabric_pattern_crossed", FABRIC_PATTERN_CROSSED);
+
+        //clothes
         register("base_shirt_item", BASE_SHIRT);
         register("base_coat_item", BASE_COAT);
         register("base_leggings_item", BASE_LEGGINGS);
@@ -86,18 +101,21 @@ public class Contents {
         
         register("stripped_shirt_item", STRIPPED_SHIRT);
         register("stripped_coat_item", STRIPPED_COAT);
+        register("stripped_leggings_item", STRIPPED_LEGGINGS);
+        register("stripped_boots_item", STRIPPED_BOOTS);
 
         register("line_coat_item", LINES_COAT);
         register("line_shirt_item", LINES_SHIRT);
         register("line_leggings_item", LINES_LEGGINGS);
 
-        register("type3_coat_item", TYPE3_COAT);
-        register("type3_shirt_item", TYPE3_SHIRT);
-        register("type3_leggings_item", TYPE3_LEGGINGS);
-        register("type3_boots_item", TYPE3_BOOTS);
+        register("type3_coat_item", CHECKERED_COAT);
+        register("type3_shirt_item", CHECKERED_SHIRT);
 
         register("type4_coat_item", CROSSED_COAT);
         register("type4_shirt_item", CROSSED_SHIRT);
+
+        register("type5_coat_item", DOTTED_COAT);
+        register("type5_shirt_item", DOTTED_SHIRT);
 
         //hats
         register("hat_item", HAT_ITEM);
@@ -111,11 +129,11 @@ public class Contents {
 
     }
 
-    public static Item register(String id, Item item){
+    private static Item register(String id, Item item){
         return Registry.register(Registry.ITEM, new Identifier(FabriClothing.MOD_ID, id), item);
     }
 
-    public static Item registerBlock(String id, Block block, Item.Settings settings){
+    private static Item registerBlock(String id, Block block, Item.Settings settings){
         BlockItem item = new BlockItem(block, settings);
         Registry.register(Registry.BLOCK, new Identifier(FabriClothing.MOD_ID, id), block);
         return Registry.register(Registry.ITEM, new Identifier(FabriClothing.MOD_ID, id), item);

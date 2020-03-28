@@ -19,8 +19,7 @@ public class ClientFabriClothing implements ClientModInitializer {
 
         //simple items, one layered.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> ((DyeableItem) stack.getItem()).getColor(stack),
-                Contents.BASE_SHIRT, Contents.BASE_COAT, Contents.BASE_LEGGINGS, Contents.BASE_BOOTS,
-                Contents.SIMPLE_SHIRT, Contents.SIMPLE_COAT);
+                Contents.BASE_SHIRT, Contents.BASE_COAT, Contents.BASE_LEGGINGS, Contents.BASE_BOOTS);
 
         //layered hats.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
@@ -29,10 +28,12 @@ public class ClientFabriClothing implements ClientModInitializer {
 
         //layered items.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
-                Contents.STRIPPED_COAT, Contents.STRIPPED_SHIRT,
+                Contents.SIMPLE_SHIRT, Contents.SIMPLE_COAT,
+                Contents.STRIPPED_COAT, Contents.STRIPPED_SHIRT, Contents.STRIPPED_LEGGINGS, Contents.STRIPPED_BOOTS,
                 Contents.LINES_COAT, Contents.LINES_SHIRT, Contents.LINES_LEGGINGS,
-                Contents.TYPE3_COAT, Contents.TYPE3_SHIRT, Contents.TYPE3_LEGGINGS, Contents.TYPE3_BOOTS,
-                Contents.CROSSED_COAT, Contents.CROSSED_SHIRT
+                Contents.CHECKERED_COAT, Contents.CHECKERED_SHIRT,
+                Contents.CROSSED_COAT, Contents.CROSSED_SHIRT,
+                Contents.DOTTED_COAT, Contents.DOTTED_SHIRT
         );
 
         //gui

@@ -1,12 +1,12 @@
-package com.software.ddk.fabriclothing.common.items.clothes.simple;
+package com.software.ddk.fabriclothing.common.items.clothes.dotted;
 
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
 
-public class SimpleCoat extends BaseCoat {
+public class DottedCoat extends BaseCoat {
 
     @Override
     public String clothId() {
-        return "type0";
+        return "type5";
     }
 
     @Override
