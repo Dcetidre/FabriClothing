@@ -31,9 +31,10 @@ public class ClientFabriClothing implements ClientModInitializer {
                 Contents.SIMPLE_SHIRT, Contents.SIMPLE_COAT,
                 Contents.STRIPPED_COAT, Contents.STRIPPED_SHIRT, Contents.STRIPPED_LEGGINGS, Contents.STRIPPED_BOOTS,
                 Contents.LINES_COAT, Contents.LINES_SHIRT, Contents.LINES_LEGGINGS,
-                Contents.CHECKERED_COAT, Contents.CHECKERED_SHIRT,
+                Contents.CHECKERED_COAT, Contents.CHECKERED_SHIRT, Contents.CHECKERED_LEGGINGS, Contents.CHECKERED_BOOTS,
                 Contents.CROSSED_COAT, Contents.CROSSED_SHIRT,
-                Contents.DOTTED_COAT, Contents.DOTTED_SHIRT
+                Contents.DOTTED_COAT, Contents.DOTTED_SHIRT, Contents.DOTTED_LEGGINGS, Contents.DOTTED_BOOTS,
+                Contents.HALF_A_SHIRT, Contents.HALF_A_COAT, Contents.HALF_A_LEGGINGS
         );
 
         //gui

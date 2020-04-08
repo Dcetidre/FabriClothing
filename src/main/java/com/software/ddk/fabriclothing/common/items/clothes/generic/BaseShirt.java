@@ -2,13 +2,24 @@ package com.software.ddk.fabriclothing.common.items.clothes.generic;
 
 import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.FabriClothing;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.DispenserBehavior;
+import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.BlockPointer;
+import net.minecraft.world.World;
 
 public class BaseShirt extends Item implements ICloth, DyeableItem {
+
     public BaseShirt() {
         super(new Item.Settings().group(FabriClothing.GROUP));
     }
@@ -45,6 +56,20 @@ public class BaseShirt extends Item implements ICloth, DyeableItem {
                 {false, true, false, false},
                 {false, false, false, false}
         };
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+        EquipmentSlot equipmentSlot = MobEntity.getPreferredEquipmentSlot(itemStack);
+        ItemStack itemStack2 = user.getEquippedStack(equipmentSlot);
+        if (itemStack2.isEmpty()) {
+            user.equipStack(equipmentSlot, itemStack.copy());
+            itemStack.setCount(0);
+            return TypedActionResult.success(itemStack);
+        } else {
+            return TypedActionResult.fail(itemStack);
+        }
     }
 
     @Override

@@ -3,10 +3,15 @@ package com.software.ddk.fabriclothing.common.items.clothes.generic;
 import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.FabriClothing;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
 public class BaseCoat extends Item implements ICloth, DyeableItem {
 
@@ -27,6 +32,20 @@ public class BaseCoat extends Item implements ICloth, DyeableItem {
     public int getColor(ItemStack stack) {
         CompoundTag compoundTag = stack.getSubTag("display");
         return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xffffff;
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+        EquipmentSlot equipmentSlot = MobEntity.getPreferredEquipmentSlot(itemStack);
+        ItemStack itemStack2 = user.getEquippedStack(equipmentSlot);
+        if (itemStack2.isEmpty()) {
+            user.equipStack(equipmentSlot, itemStack.copy());
+            itemStack.setCount(0);
+            return TypedActionResult.success(itemStack);
+        } else {
+            return TypedActionResult.fail(itemStack);
+        }
     }
 
     @Override

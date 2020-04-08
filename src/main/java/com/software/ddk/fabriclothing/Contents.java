@@ -2,14 +2,21 @@ package com.software.ddk.fabriclothing;
 
 import com.software.ddk.fabriclothing.common.blocks.ClothingDyevatBlock;
 import com.software.ddk.fabriclothing.common.items.*;
+import com.software.ddk.fabriclothing.common.items.clothes.checkered.CheckeredBoots;
+import com.software.ddk.fabriclothing.common.items.clothes.checkered.CheckeredLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.crossed.CrossedShirt;
+import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedBoots;
 import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedCoat;
+import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.dotted.DottedShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseBoots;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.generic.BaseShirt;
+import com.software.ddk.fabriclothing.common.items.clothes.halfA.HalfACoat;
+import com.software.ddk.fabriclothing.common.items.clothes.halfA.HalfALeggings;
+import com.software.ddk.fabriclothing.common.items.clothes.halfA.HalfAShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesLeggings;
 import com.software.ddk.fabriclothing.common.items.clothes.lines.LinesShirt;
@@ -68,12 +75,20 @@ public class Contents {
 
     public static final Item CHECKERED_COAT = new CheckeredCoat();
     public static final Item CHECKERED_SHIRT = new CheckeredShirt();
+    public static final Item CHECKERED_LEGGINGS = new CheckeredLeggings();
+    public static final Item CHECKERED_BOOTS = new CheckeredBoots();
 
     public static final Item CROSSED_COAT = new CrossedCoat();
     public static final Item CROSSED_SHIRT = new CrossedShirt();
 
     public static final Item DOTTED_COAT = new DottedCoat();
     public static final Item DOTTED_SHIRT = new DottedShirt();
+    public static final Item DOTTED_LEGGINGS = new DottedLeggings();
+    public static final Item DOTTED_BOOTS = new DottedBoots();
+
+    public static final Item HALF_A_SHIRT = new HalfAShirt();
+    public static final Item HALF_A_COAT = new HalfACoat();
+    public static final Item HALF_A_LEGGINGS = new HalfALeggings();
 
     public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
@@ -110,12 +125,20 @@ public class Contents {
 
         register("type3_coat_item", CHECKERED_COAT);
         register("type3_shirt_item", CHECKERED_SHIRT);
+        register("type3_leggings_item", CHECKERED_LEGGINGS);
+        register("type3_boots_item", CHECKERED_BOOTS);
 
         register("type4_coat_item", CROSSED_COAT);
         register("type4_shirt_item", CROSSED_SHIRT);
 
         register("type5_coat_item", DOTTED_COAT);
         register("type5_shirt_item", DOTTED_SHIRT);
+        register("type5_leggings_item", DOTTED_LEGGINGS);
+        register("type5_boots_item", DOTTED_BOOTS);
+
+        register("type6_shirt_item", HALF_A_SHIRT);
+        register("type6_coat_item", HALF_A_COAT);
+        register("type6_leggings_item", HALF_A_LEGGINGS);
 
         //hats
         register("hat_item", HAT_ITEM);
