@@ -45,6 +45,8 @@ public class Contents {
     public static final Item FABRIC_PATTERN_LINE = new Item(new Item.Settings().group(FabriClothing.GROUP));
     public static final Item FABRIC_PATTERN_CHECKERED = new Item(new Item.Settings().group(FabriClothing.GROUP));
     public static final Item FABRIC_PATTERN_CROSSED = new Item(new Item.Settings().group(FabriClothing.GROUP));
+    public static final Item FABRIC_PATTERN_DOTTED = new Item(new Item.Settings().group(FabriClothing.GROUP));
+    public static final Item FABRIC_PATTERN_HALFA = new Item(new Item.Settings().group(FabriClothing.GROUP));
 
     public static final Item BASE_SHIRT = new BaseShirt();
     public static final Item BASE_COAT = new BaseCoat();
@@ -102,6 +104,8 @@ public class Contents {
         register("fabric_pattern_line", FABRIC_PATTERN_LINE);
         register("fabric_pattern_checkered", FABRIC_PATTERN_CHECKERED);
         register("fabric_pattern_crossed", FABRIC_PATTERN_CROSSED);
+        register("fabric_pattern_dotted", FABRIC_PATTERN_DOTTED);
+        register("fabric_pattern_halfa", FABRIC_PATTERN_HALFA);
 
         //clothes
         register("base_shirt_item", BASE_SHIRT);
