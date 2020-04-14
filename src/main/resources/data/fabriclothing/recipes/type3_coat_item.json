@@ -1,0 +1,20 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		" o ",
+		"oxo",
+		" o "
+	],
+	"key" : {
+		"o" : {
+			"item" : "fabriclothing:fabric_pattern_checkered"
+		},
+		"x" : {
+			"item" : "fabriclothing:type3_shirt_item"
+		}
+	},
+	"result" : {
+		"item" : "fabriclothing:type3_coat_item",
+		"count" : 1
+	}
+}

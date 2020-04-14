@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"   ",
+		"o o",
+		"o o"
+	],
+	"key" : {
+		"o" : {
+			"item" : "fabriclothing:fabric_pattern_stripped"
+		}
+	},
+	"result" : {
+		"item" : "fabriclothing:stripped_coat_item",
+		"count" : 1
+	}
+}

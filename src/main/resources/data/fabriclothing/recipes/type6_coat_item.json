@@ -1,0 +1,20 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		" o ",
+		"oxo",
+		" o "
+	],
+	"key" : {
+		"o" : {
+			"item" : "fabriclothing:fabric_pattern_halfa"
+		},
+		"x" : {
+			"item" : "fabriclothing:type6_shirt_item"
+		}
+	},
+	"result" : {
+		"item" : "fabriclothing:type6_coat_item",
+		"count" : 1
+	}
+}
