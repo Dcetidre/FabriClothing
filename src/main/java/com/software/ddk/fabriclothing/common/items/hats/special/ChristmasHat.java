@@ -1,19 +1,7 @@
 package com.software.ddk.fabriclothing.common.items.hats.special;
 
-import com.software.ddk.clothing.api.ClothRenderData;
-import com.software.ddk.fabriclothing.common.items.hats.generic.BaseHat;
-import net.minecraft.entity.EquipmentSlot;
+import com.software.ddk.fabriclothing.common.items.hats.generic.BaseTrinketsHat;
 
-public class ChristmasHat extends BaseHat {
+public class ChristmasHat extends BaseTrinketsHat {
 
-    @Override
-    public ClothRenderData renderData() {
-        ClothRenderData clothRenderData = new ClothRenderData(EquipmentSlot.HEAD,
-                1.1f, 1.1f, 1.2f,
-                0.0f, 0.45f, 0.08f);
-        clothRenderData.setRenderMode(ClothRenderData.RENDER_ITEMMODEL);
-        clothRenderData.setRotable(true);
-        clothRenderData.setRotation(180.0f,180.0f, 0.0f);
-        return clothRenderData;
-    }
 }

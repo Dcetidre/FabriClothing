@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
+@Deprecated
 public class BaseHat extends Item implements ICloth, DyeableItem {
 
     public BaseHat() {

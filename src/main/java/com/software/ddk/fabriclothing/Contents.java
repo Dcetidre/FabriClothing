@@ -28,9 +28,8 @@ import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.simple.SimpleShirt;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedCoat;
 import com.software.ddk.fabriclothing.common.items.clothes.stripped.StrippedShirt;
-import com.software.ddk.fabriclothing.common.items.hats.generic.BaseHat;
-import com.software.ddk.fabriclothing.common.items.hats.special.BunnyHat;
-import com.software.ddk.fabriclothing.common.items.hats.special.ChristmasHat;
+import com.software.ddk.fabriclothing.integration.TrinketsClothingHats;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -40,7 +39,6 @@ import net.minecraft.util.registry.Registry;
 public class Contents {
 
     public static final Item FABRIC_ITEM = new FabricItem();
-
     public static final Item FABRIC_PATTERN_STRIPPED = new Item(new Item.Settings().group(FabriClothing.GROUP));
     public static final Item FABRIC_PATTERN_LINE = new Item(new Item.Settings().group(FabriClothing.GROUP));
     public static final Item FABRIC_PATTERN_CHECKERED = new Item(new Item.Settings().group(FabriClothing.GROUP));
@@ -57,14 +55,6 @@ public class Contents {
     public static final Item SIMPLE_COAT = new SimpleCoat();
     //public static final Item SIMPLE_LEGGINGS = new SimpleLeggings();
     //public static final Item SIMPLE_BOOTS = new SimpleBoots();
-
-    //hats
-    public static final Item HAT_ITEM = new BaseHat();
-    public static final Item HAT_STRIPPED_ITEM = new BaseHat();
-    public static final Item HAT_STRIPPED2_ITEM = new BaseHat();
-    public static final Item HAT_FLOWERED_ITEM = new BaseHat();
-    public static final Item HAT_CHRISTMAS = new ChristmasHat();
-    public static final Item HAT_BUNNY = new BunnyHat();
 
     public static final Item STRIPPED_COAT = new StrippedCoat();
     public static final Item STRIPPED_SHIRT = new StrippedShirt();
@@ -94,8 +84,8 @@ public class Contents {
 
     public static final Block CLOTHING_DYEVAT_BLOCK = new ClothingDyevatBlock();
 
-    public static void registerAll(){
 
+    public static void registerAll(){
         registerBlock("clothing_dyevat_block", CLOTHING_DYEVAT_BLOCK, new Item.Settings().group(FabriClothing.GROUP));
         register("fabric_item", FABRIC_ITEM);
 
@@ -144,19 +134,16 @@ public class Contents {
         register("type6_coat_item", HALF_A_COAT);
         register("type6_leggings_item", HALF_A_LEGGINGS);
 
+        //hats integration with trinkets test.
         //hats
-        register("hat_item", HAT_ITEM);
-        register("hat_stripped_item", HAT_STRIPPED_ITEM);
-        register("hat_stripped2_item", HAT_STRIPPED2_ITEM);
-        register("hat_flowered_item", HAT_FLOWERED_ITEM);
-
-        //special hats
-        register("hat_christmas_item", HAT_CHRISTMAS);
-        register("hat_bunny_item", HAT_BUNNY);
+        if (FabricLoader.getInstance().isModLoaded("trinkets")){
+            //load slots.
+            TrinketsClothingHats.registerHats();
+        }
 
     }
 
-    private static Item register(String id, Item item){
+    public static Item register(String id, Item item){
         return Registry.register(Registry.ITEM, new Identifier(FabriClothing.MOD_ID, id), item);
     }
 

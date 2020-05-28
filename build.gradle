@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.2.6-SNAPSHOT'
+	id 'fabric-loom' version '0.4.9'
 	id 'maven-publish'
 }
 
@@ -33,10 +33,14 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modCompile "com.github.DiegoDDK:Clothing-api:1.0.9.3"
-	include ("com.github.DiegoDDK:Clothing-api:1.0.9.3") {
+	modCompile "com.github.DiegoDDK:Clothing-api:1.0.9.4"
+	include ("com.github.DiegoDDK:Clothing-api:1.0.9.4") {
 		exclude group :"net.fabricmc.fabric-api"
 	}
+
+	//trinkets api
+	modImplementation "com.github.emilyploszaj:trinkets:v2.4.1"
+
 
 	//offline test clothing api
 	//compile fileTree(dir: "libs", include: "*.jar")

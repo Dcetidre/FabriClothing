@@ -4,10 +4,12 @@ import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.common.items.*;
 import com.software.ddk.fabriclothing.gui.DyeVatContainer;
 import com.software.ddk.fabriclothing.gui.DyeVatScreen;
+import com.software.ddk.fabriclothing.integration.TrinketsClothingHats;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.container.BlockContext;
 import net.minecraft.item.DyeableItem;
@@ -22,9 +24,15 @@ public class ClientFabriClothing implements ClientModInitializer {
                 Contents.BASE_SHIRT, Contents.BASE_COAT, Contents.BASE_LEGGINGS, Contents.BASE_BOOTS);
 
         //layered hats.
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
-                Contents.HAT_ITEM, Contents.HAT_STRIPPED_ITEM, Contents.HAT_STRIPPED2_ITEM, Contents.HAT_FLOWERED_ITEM,
-                Contents.HAT_BUNNY);
+        //trinkets integration.
+        if (FabricLoader.getInstance().isModLoaded("trinkets")){
+            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),
+                    TrinketsClothingHats.HAT_ITEM,
+                    TrinketsClothingHats.HAT_STRIPPED_ITEM,
+                    TrinketsClothingHats.HAT_STRIPPED2_ITEM,
+                    TrinketsClothingHats.HAT_FLOWERED_ITEM,
+                    TrinketsClothingHats.HAT_BUNNY);
+        }
 
         //layered items.
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> (tintIndex == 0) ? ((DyeableItem) stack.getItem()).getColor(stack) : ((ICloth) stack.getItem()).getColorOverlay(stack),

@@ -1,9 +1,11 @@
 package com.software.ddk.fabriclothing;
 
 import com.software.ddk.fabriclothing.gui.DyeVatContainer;
+import com.software.ddk.fabriclothing.integration.TrinketsClothingHats;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.container.BlockContext;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -23,5 +25,10 @@ public class FabriClothing implements ModInitializer {
         //gui
         ContainerProviderRegistry.INSTANCE.registerFactory(DYE_VAT_CONTAINER, (syncId, id, player, buf) -> new DyeVatContainer(syncId, player.inventory, BlockContext.create(player.world, buf.readBlockPos())));
 
+        //add trinkets integration if loaded.
+        if (FabricLoader.getInstance().isModLoaded("trinkets")){
+            //load slots.
+            TrinketsClothingHats.initTrinkets();
+        }
     }
 }
