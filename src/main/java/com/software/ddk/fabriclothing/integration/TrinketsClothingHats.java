@@ -7,11 +7,11 @@ import com.software.ddk.fabriclothing.common.items.hats.special.ChristmasHat;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketSlots;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
 public class TrinketsClothingHats {
+
     //hats
     public static Item HAT_ITEM = new BaseTrinketsHat();
     public static Item HAT_STRIPPED_ITEM = new BaseTrinketsHat();

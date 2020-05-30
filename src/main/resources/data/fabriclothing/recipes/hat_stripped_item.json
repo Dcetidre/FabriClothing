@@ -1,17 +1,17 @@
 {
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
-		"   ",
-		"o o",
-		"o o"
+		" o ",
+		"ooo",
+		"   "
 	],
 	"key" : {
 		"o" : {
-			"item" : "fabriclothing:fabric_pattern_dotted"
+			"item" : "fabriclothing:fabric_pattern_line"
 		}
 	},
 	"result" : {
-		"item" : "fabriclothing:type5_boots_item",
+		"item" : "fabriclothing:hat_stripped_item",
 		"count" : 1
 	}
 }

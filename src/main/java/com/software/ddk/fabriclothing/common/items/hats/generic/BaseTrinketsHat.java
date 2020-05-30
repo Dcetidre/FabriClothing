@@ -4,6 +4,8 @@ import com.software.ddk.clothing.api.ClothRenderData;
 import com.software.ddk.clothing.api.ICloth;
 import com.software.ddk.fabriclothing.FabriClothing;
 import dev.emi.trinkets.api.*;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -20,7 +22,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
 public class BaseTrinketsHat extends Item implements ITrinket, DyeableItem, ICloth {
-    private ClothRenderData renderData;
     private AbstractClientPlayerEntity playerEntity;
 
     public BaseTrinketsHat() {
@@ -78,6 +79,10 @@ public class BaseTrinketsHat extends Item implements ITrinket, DyeableItem, IClo
         clothRenderData.setRotable(true);
         clothRenderData.setRotation(180.0f, 0.0f, 0.0f);
 
+        return clothRenderData;
+    }
+
+    public ClothRenderData trinketsRenderData(){
         //trinkets render
         ClothRenderData trinketsRenderData = new ClothRenderData(EquipmentSlot.HEAD,
                 1.3f, 1.1f, 1.2f,
@@ -86,12 +91,11 @@ public class BaseTrinketsHat extends Item implements ITrinket, DyeableItem, IClo
         trinketsRenderData.setRotable(true);
         trinketsRenderData.setRotation(180.0f, 0.0f, 0.0f);
 
-        //check slot.
-        //todo hardcoded as fck
-        return (isSlotCloth()) ? clothRenderData : trinketsRenderData;
+        return trinketsRenderData;
     }
 
-    public boolean isSlotCloth(){
+    @Environment(EnvType.CLIENT)
+    private boolean isSlotCloth(){
         return (getPlayerEntity() == null) || TrinketsApi.getTrinketComponent(getPlayerEntity()).getStack(SlotGroups.HEAD, Slots.MASK).isEmpty();
     }
 
@@ -102,11 +106,16 @@ public class BaseTrinketsHat extends Item implements ITrinket, DyeableItem, IClo
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void render(String slot, MatrixStack matrixStack, VertexConsumerProvider vertexConsumer, int light, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack stack = (player != null) ? TrinketsApi.getTrinketComponent(player).getStack(SlotGroups.HEAD, Slots.MASK) : this.getStackForRender();
         ITrinket.translateToFace(matrixStack, model, player, headYaw, headPitch);
-        renderData = renderData();
+
+        //check the slot every frame.
+
+        ClothRenderData renderData = (isSlotCloth()) ? renderData() : trinketsRenderData();
+
         this.playerEntity = player;
 
         if (renderData.isRotable()) {

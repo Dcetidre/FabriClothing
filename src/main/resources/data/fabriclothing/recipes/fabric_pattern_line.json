@@ -1,9 +1,9 @@
 {
   "type" : "minecraft:crafting_shaped",
   "pattern" : [
-    "xxx",
     "   ",
-    "xxx"
+    "xxx",
+    "   "
   ],
   "key" : {
     "x" : {
@@ -12,6 +12,6 @@
   },
   "result" : {
     "item" : "fabriclothing:fabric_pattern_line",
-    "count" : 6
+    "count" : 3
   }
 }

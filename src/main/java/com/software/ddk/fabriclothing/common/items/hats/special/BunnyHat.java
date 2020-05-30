@@ -17,6 +17,11 @@ public class BunnyHat extends BaseTrinketsHat {
         clothRenderData.setRotable(true);
         clothRenderData.setRotation(180.0f,180.0f, 0.0f);
 
+        return clothRenderData;
+    }
+
+    @Override
+    public ClothRenderData trinketsRenderData(){
         //trinkets render
         ClothRenderData trinketsRenderData = new ClothRenderData(EquipmentSlot.HEAD,
                 0.55f, 0.8f, 0.5f,
@@ -24,8 +29,7 @@ public class BunnyHat extends BaseTrinketsHat {
         trinketsRenderData.setRenderMode(ClothRenderData.RENDER_ITEMMODEL);
         trinketsRenderData.setRotable(true);
         trinketsRenderData.setRotation(180.0f, 180.0f, 0.0f);
-
-        return (isSlotCloth()) ? clothRenderData : trinketsRenderData;
+        return trinketsRenderData;
     }
 
 }

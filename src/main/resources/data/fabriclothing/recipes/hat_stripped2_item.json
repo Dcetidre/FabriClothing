@@ -1,9 +1,9 @@
 {
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
-		"   ",
-		"o o",
-		"o o"
+		" o ",
+		"ooo",
+		"   "
 	],
 	"key" : {
 		"o" : {
@@ -11,7 +11,7 @@
 		}
 	},
 	"result" : {
-		"item" : "fabriclothing:stripped_boots_item",
+		"item" : "fabriclothing:hat_stripped2_item",
 		"count" : 1
 	}
 }

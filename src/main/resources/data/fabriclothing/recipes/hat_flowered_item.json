@@ -1,23 +1,20 @@
 {
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
-		"yyy",
-		"oxo",
-		"yyy"
+		" o ",
+		"ooo",
+		" x "
 	],
 	"key" : {
 		"o" : {
-			"item" : "minecraft:stick"
-		},
-		"x" : {
 			"item" : "fabriclothing:fabric_item"
 		},
-		"y" : {
-			"tag": "minecraft:planks"
+		"x" : {
+			"tag" : "minecraft:small_flowers"
 		}
 	},
 	"result" : {
-		"item" : "fabriclothing:clothing_dyevat_block",
+		"item" : "fabriclothing:hat_flowered_item",
 		"count" : 1
 	}
 }
