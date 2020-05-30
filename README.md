@@ -9,6 +9,10 @@ You need to craft fabric using a wool and some string, then you can craft patter
 
 ![linepattern](https://github.com/Diegoddk/FabriClothing/raw/master/wikicrafting/linepattern.png)
 
+Craft the outfits just like as armor
+![linepattern](https://github.com/Diegoddk/FabriClothing/raw/master/wikicrafting/basicshirt.png)
+
+![linepattern](https://github.com/Diegoddk/FabriClothing/raw/master/wikicrafting/coat.png)
 
 Lastly you can dye the outfit using the dye vat, using a fabric with a dye you can tint the color as you like.
  
